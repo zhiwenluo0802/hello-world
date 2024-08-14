@@ -6,11 +6,14 @@ def read_file(file_path):
     with open(file_path, 'r') as file:
         return file.read()
 
+def calculate_word_frequency(text):
+    """Calculate the frequency of each word in the given text."""
+    words = text.split()
+    return Counter(words)
+
 def count_words(input_file, output_file):
     text = read_file(input_file)
-
-    words = text.split()
-    word_counts = Counter(words)
+    word_counts = calculate_word_frequency(text)
 
     with open(output_file, 'w') as file:
         for word, count in word_counts.items():
