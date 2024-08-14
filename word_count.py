@@ -18,9 +18,16 @@ def calculate_word_frequency(text):
     words = text.split()
     return Counter(words)
 
+def write_word_counts(word_counts, output_file):
+    """Write the word counts to the specified output file."""
+    with open(output_file, 'w') as file:
+        for word, count in word_counts.items():
+            file.write(f"{word}: {count}\n")
+
 def count_words(input_file, output_file):
     text = read_file(input_file)
     word_counts = calculate_word_frequency(text)
+    write_word_counts(word_counts, output_file)
 
     with open(output_file, 'w') as file:
         for word, count in word_counts.items():
