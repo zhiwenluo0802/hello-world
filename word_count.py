@@ -1,6 +1,6 @@
+import re
 import sys
 from collections import Counter
-import re
 
 def read_file(file_path):
     """Read the contents of a text file and return as a string."""
@@ -29,7 +29,7 @@ def count_words(input_file, output_file):
     write_word_counts(word_counts, output_file)
 
 if __name__ == "__main__":
-    if len(sys.arg) != 3:
+    if len(sys.argv) != 3:
         print("Usage: python word_count.py <input_file> <output_file>")
     else:
         input_file = sys.argv[1]
