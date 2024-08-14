@@ -6,8 +6,15 @@ def read_file(file_path):
     with open(file_path, 'r') as file:
         return file.read()
 
+import re
+
 def calculate_word_frequency(text):
-    """Calculate the frequency of each word in the given text."""
+    """Calculate the frequency of each word in the given text, ignoring case and removing punctuation."""
+    # Remove punctuation using regex
+    text = re.sub(r'[^\w\s]', '', text)
+    # Convert text to lowercase
+    text = text.lower()
+    # Split text into words
     words = text.split()
     return Counter(words)
 
