@@ -1,9 +1,13 @@
 import sys
 from collections import Counter
 
+def read_file(file_path):
+    """Read the contents of a text file and return as a string."""
+    with open(file_path, 'r') as file:
+        return file.read()
+
 def count_words(input_file, output_file):
-    with open(input_file, 'r') as file:
-        text = file.read()
+    text = read_file(input_file)
 
     words = text.split()
     word_counts = Counter(words)
